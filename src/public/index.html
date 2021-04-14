@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>CodeShare</title>
+	<link href="/stylesheets/style.css" rel="stylesheet">
+	<meta charset="utf-8" />
+</head>
+
+<body>
+	<div id="content">
+		<header>
+			<h1>CodeShare</h1>
+		</header>
+		<main>
+			<div class="main-container">
+				<input type="button" id="btn-show-modal-code-snippet" value="Post Code Snippet">
+			</div>
+		</main>
+		<div id="modal-code-snippet" class="modal">
+			<div class="modal-content">
+
+				<div>
+					<label for="title">Title</label>
+
+					<input type="text" id="code-snippet-title" name="title" value="">
+				</div>
+				<div>
+					<label for="code">Code</label>
+
+					<textarea id="code-snippet-code" name="code" rows="4" cols="50"></textarea>
+				</div>
+
+
+				<input type="button" class="submit" id="create-code-snippet" value="Post Code Snippet">
+				<input type="button" class="close" value="Cancel">
+
+			</div>
+		</div>
+
+		<div id="modal-comment" class="modal">
+			<div class="modal-content">
+
+				<div>
+					<label for="title">Comment</label>
+					<input type="text" id="comment-text" name="title" value="">
+				</div>
+
+				<input type="button" class="submit" id="create-comment" value="Comment">
+				<input type="button" class="close" value="Cancel">
+				<input type="hidden" id="code-snippet-id" value="">
+			</div>
+		</div>
+	</div>
+	<script src="javascripts/index.js"></script>
+</body>
+
+</html>
