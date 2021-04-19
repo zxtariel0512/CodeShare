@@ -11,6 +11,18 @@ app.use(express.urlencoded({ extended: true }));
 
 app.post('/code_snippets/', (req, res) => {
 
+    const newSnippet = {
+        title: req.body.title,
+        code: req.body.code
+    }
+    CodeSnippet.create(newSnippet, (err, snippet) => {
+        if(!err){
+            res.json(snippet);
+        } else{
+            res.json({error: 'Create code snippet failed.'});
+        }
+    })
+
 });
 
 app.post('/code_snippets/:id/comments/', (req, res) => {
