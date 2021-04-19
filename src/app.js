@@ -1,6 +1,8 @@
 const express = require("express");
 const app = express();
-const CodeSnippet = require('./db');
+require('./db');
+const mongoose = require('mongoose');
+const CodeSnippet = mongoose.model('CodeSnippet');
 const bodyParser = require('body-parser');
 
 app.use(bodyParser.json());
@@ -16,7 +18,23 @@ app.post('/code_snippets/:id/comments/', (req, res) => {
 
 });
 
-app.get('/code_snippets/', (req, res) => {
+app.get('/code_snippets/', async(req, res) => {
+
+    CodeSnippet.find({}, function(err, snippets){
+        // if(!err){
+        //     console.log("getting code snippets");
+        //     console.log(snippets);
+        //     res.json(snippets.map(function(ele){
+        //             return{
+        //                 "title": ele.title,
+        //                 "code": ele.code,
+        //                 "comment": ele.comment
+        //             };
+        //         })
+        //     );
+        // }
+        res.json(snippets);
+    })
 
 });
 
